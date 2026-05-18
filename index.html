@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For You ❤️</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(135deg,#0f0f0f,#1b1b1b,#2a0f1f);
+      color:white;
+      overflow-x:hidden;
+    }
+
+    .container{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:850px;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(14px);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:30px;
+      padding:50px;
+      box-shadow:0 0 40px rgba(255,105,180,0.15);
+      animation:fadeIn 1.5s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .heart{
+      position:absolute;
+      font-size:20px;
+      opacity:0.15;
+      animation:float 6s infinite linear;
+    }
+
+    h1{
+      font-family:'Great Vibes',cursive;
+      font-size:4rem;
+      text-align:center;
+      margin-bottom:20px;
+      color:#ffb6d9;
+    }
+
+    .letter{
+      line-height:1.9;
+      font-size:1.08rem;
+      color:#f5f5f5;
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .divider{
+      width:120px;
+      height:2px;
+      background:#ff8fc7;
+      margin:0 auto 40px;
+      border-radius:20px;
+    }
+
+    .countdown-title{
+      text-align:center;
+      font-size:1.4rem;
+      margin-bottom:25px;
+      color:#ffd3e8;
+    }
+
+    .countdown{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .time-box{
+      background:rgba(255,255,255,0.08);
+      border-radius:20px;
+      padding:25px 15px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .time-box h2{
+      font-size:2.5rem;
+      color:#ff9fcb;
+      margin-bottom:8px;
+    }
+
+    .time-box p{
+      font-size:0.9rem;
+      color:#ddd;
+      letter-spacing:1px;
+    }
+
+    .final-message{
+      display:none;
+      text-align:center;
+      margin-top:50px;
+      animation:fadeIn 2s ease;
+    }
+
+    .final-message h2{
+      font-size:3rem;
+      color:#ffb6d9;
+      margin-bottom:15px;
+      font-family:'Great Vibes',cursive;
+    }
+
+    .final-message p{
+      font-size:1.2rem;
+      color:#fff;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes float{
+      from{
+        transform:translateY(100vh) rotate(0deg);
+      }
+      to{
+        transform:translateY(-120vh) rotate(360deg);
+      }
+    }
+
+    @media(max-width:700px){
+      h1{
+        font-size:3rem;
+      }
+
+      .card{
+        padding:35px 25px;
+      }
+
+      .countdown{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .time-box h2{
+        font-size:2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+
+      <!-- floating hearts -->
+      <div class="heart" style="left:10%; animation-delay:0s;">❤️</div>
+      <div class="heart" style="left:25%; animation-delay:2s;">❤️</div>
+      <div class="heart" style="left:50%; animation-delay:4s;">❤️</div>
+      <div class="heart" style="left:75%; animation-delay:1s;">❤️</div>
+      <div class="heart" style="left:90%; animation-delay:3s;">❤️</div>
+
+      <h1>For You</h1>
+
+      <div class="letter">
+        I honestly don’t even know where to start.<br><br>
+
+        You’ve made my days brighter in ways you probably don’t even realize.
+        Every conversation, every laugh, every moment with you just feels right.<br><br>
+
+        Being around you feels comforting, exciting, peaceful, and chaotic all at once —
+        somehow the best combination possible.<br><br>
+
+        So until I finally ask you something important...
+        here’s a little countdown ❤️
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="countdown-title">
+        Countdown Until The Big Question
+      </div>
+
+      <div class="countdown">
+        <div class="time-box">
+          <h2 id="days">00</h2>
+          <p>DAYS</p>
+        </div>
+
+        <div class="time-box">
+          <h2 id="hours">00</h2>
+          <p>HOURS</p>
+        </div>
+
+        <div class="time-box">
+          <h2 id="minutes">00</h2>
+          <p>MINUTES</p>
+        </div>
+
+        <div class="time-box">
+          <h2 id="seconds">00</h2>
+          <p>SECONDS</p>
+        </div>
+      </div>
+
+      <div class="final-message" id="finalMessage">
+        <h2>Will You Be My Girlfriend?</h2>
+        <p>❤️</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // SET YOUR DATE HERE
+    const targetDate = new Date("June 20, 2026 20:00:00").getTime();
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+    const finalMessage = document.getElementById("finalMessage");
+
+    const timer = setInterval(() => {
+
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if(distance < 0){
+        clearInterval(timer);
+
+        document.querySelector(".countdown").style.display = "none";
+        document.querySelector(".countdown-title").style.display = "none";
+
+        finalMessage.style.display = "block";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      daysEl.innerHTML = days;
+      hoursEl.innerHTML = hours;
+      minutesEl.innerHTML = minutes;
+      secondsEl.innerHTML = seconds;
+
+    }, 1000);
+  </script>
+
+</body>
+</html>
